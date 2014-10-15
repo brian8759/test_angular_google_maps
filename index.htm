@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="appMaps">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS with Google Maps</title>
+    <!--
+    <script src="//maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places&sensor=false&language=en&v=3.17"></script>
+    -->
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script data-require="angular.js@1.2.x" 
+    src="https://code.angularjs.org/1.2.26/angular.js" data-semver="1.2.26"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/master/dist/angular-google-maps.js"></script>
+    <script type='text/javascript' src='js/bluebird.js'></script>
+    <script type='text/javascript' src='js/ng-app.js'></script>
+    <!--
+    <script type='text/javascript' src='js/ng-controller.js'></script>
+    -->
+    
+    <style type="text/css">
+        html, body, #map_canvas {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+        #map_canvas {
+            position: relative;
+        }
+
+        .angular-google-map-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!--
+    <div id="map_canvas" ng-controller="mainCtrl">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+        <ui-gmap-layer namespace="weather" type="WeatherLayer" show="showWeather"></ui-gmap-layer>
+    </ui-gmap-google-map>
+    </div>
+    -->
+    
+    <div id="map_canvas" ng-controller="mainCtrl">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+    </ui-gmap-google-map>
+    </div>
+    
+</body>
+
+</html>
