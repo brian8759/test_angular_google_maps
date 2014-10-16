@@ -56,11 +56,6 @@ angular.module('appMaps', ['google-maps'.ns()])
 */
 
 .controller('mainCtrl', function($scope) {
-        var geo = {
-            type: "Point", 
-            coordinates: [40.1451, -99.6680]
-        };
-
         $scope.map = {
             //center: {latitude: 40.1451, longitude: -99.6680 }, 
             //center: geo,
@@ -100,10 +95,18 @@ angular.module('appMaps', ['google-maps'.ns()])
             // Only need to regenerate once
             if (!ov.southwest && nv.southwest) {
                 var markers = [];
-                for (var i = 0; i < 50; i++) {
+                for (var i = 0; i < 1000; i++) {
                     markers.push(createRandomMarker(i, $scope.map.bounds))
                 }
                 $scope.randomMarkers = markers;
             }
         }, true);
+        $scope.markersEvents = {
+            click: function (gMarker, eventName, model) {
+                    if(model.$id){
+                        model = model.coords;//use scope portion then
+                    }
+                    alert("Model: event:" + eventName + " " + JSON.stringify(model));
+                }
+        };
     });
