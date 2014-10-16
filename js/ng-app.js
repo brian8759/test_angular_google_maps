@@ -64,7 +64,7 @@ angular.module('appMaps', ['google-maps'.ns()])
         $scope.map = {
             //center: {latitude: 40.1451, longitude: -99.6680 }, 
             //center: geo,
-            center: { type: "Point", coordinates: [40.1451, -99.6680] },
+            center: { type: "Point", coordinates: [-122.377827, 45.619988] },
             zoom: 4, 
             bounds: {}
         };
