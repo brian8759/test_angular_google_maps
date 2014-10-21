@@ -1,4 +1,4 @@
-angular.module('appMaps', ['google-maps'.ns()])
+angular.module('appMaps', ['appMaps.Controller', 'google-maps'.ns()]);
 /*
 .controller('mainCtrl', function($scope) {
         var geo = {
@@ -54,7 +54,7 @@ angular.module('appMaps', ['google-maps'.ns()])
         }, true);
     });
 */
-
+/*
 .controller('mainCtrl', function($scope) {
         $scope.map = {
             //center: {latitude: 40.1451, longitude: -99.6680 }, 
@@ -77,9 +77,11 @@ angular.module('appMaps', ['google-maps'.ns()])
             var latitude = lat_min + (Math.random() * lat_range);
             var longitude = lng_min + (Math.random() * lng_range);
             var ret = {
-                latitude: latitude,
-                longitude: longitude,
+                geo: { type: "Point", coordinates: [ -105.01621, 39.57422] },
+                //latitude: latitude,
+                //longitude: longitude,
                 title: 'm' + i,
+                text: "This is a test Tweet!",
                 show: false
             };
             ret.onClick = function() {
@@ -95,18 +97,29 @@ angular.module('appMaps', ['google-maps'.ns()])
             // Only need to regenerate once
             if (!ov.southwest && nv.southwest) {
                 var markers = [];
-                for (var i = 0; i < 1000; i++) {
+                for (var i = 0; i < 1; i++) {
                     markers.push(createRandomMarker(i, $scope.map.bounds))
                 }
                 $scope.randomMarkers = markers;
             }
         }, true);
+        // we can define events for cluster
+        $scope.clusterEvents = {
+            mouseover: function (cluster, clusterModels) {
+                    alert("Cluster Models: clusterModels: " + JSON.stringify(clusterModels));
+            }
+        };
+        // events for single marker
         $scope.markersEvents = {
+            // we can define different mouse events to fire different handlers
+            // for example, single click will show only the text part of the tweet
+            // double click will show all the detail information of this tweet
             click: function (gMarker, eventName, model) {
-                    if(model.$id){
+                    if(model.id){
                         model = model.coords;//use scope portion then
                     }
                     alert("Model: event:" + eventName + " " + JSON.stringify(model));
                 }
         };
     });
+*/
